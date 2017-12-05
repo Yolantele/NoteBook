@@ -1,11 +1,11 @@
 (function (exports) {
 
   function NoteListView (noteListModel = NoteListModel) {
-    this.noteListModelClass = noteListModel  // *notes(text)
+    this.noteListModelClass = noteListModel // *notes(text)
   }
 
   NoteListView.prototype.returnAllList = function () {
-    return this.noteListModelClass
+    return this.noteListModelClass.forEach(function(obj){ obj.returnText()}
   }
 
   NoteListView.prototype.returnsHTML = function () {
