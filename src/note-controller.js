@@ -20,8 +20,8 @@ content.setElement('app')
 
 content.changeContent('Majd')
 
-var noteList = new NoteList();
-noteList.createAndStoreNote("Favourite drink: seltzer")
-console.log(noteList.notes);
-// var noteView = new NoteListView(noteList);
-// console.log(noteView.returnsHTML)
+// var noteList = new NoteList();
+// noteList.createAndStoreNote("Favourite drink: seltzer")
+// console.log(noteList.notes);
+// // var noteView = new NoteListView(noteList);
+// // console.log(noteView.returnsHTML)
