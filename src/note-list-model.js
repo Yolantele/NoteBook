@@ -7,7 +7,7 @@
 
   NoteList.prototype = {
     returnAllNotes: function () {
-      return this.notes
+      return this.notes  //returns array 
     },
     createAndStoreNote: function (text) {
       this.notes.push(new this.noteClass(text))
