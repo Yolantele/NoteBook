@@ -11,6 +11,7 @@
       this.stringsArray = array
       return '<ul><li><div>' + this.stringsArray.join('</div></li><li><div>') + '</div></li></ul>'
 
+    }
   }
   exports.NoteListView = NoteListView
 })(this)
