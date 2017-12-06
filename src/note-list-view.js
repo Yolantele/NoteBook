@@ -1,5 +1,4 @@
 (function (exports) {
-
   function NoteListView (noteList = new NoteList) {
     this.noteListModelClass = noteList.returnAllNotes()
     this.stringsArray = []
@@ -12,28 +11,9 @@
     return this.stringsArray
   }
 
-
   NoteListView.prototype.returnsHTML = function () {
-    return '<ul><li><div>'+ this.stringsArray.join('</div></li><li><div>') + '</div></li></ul>'
+    return '<ul><li><div>' + this.stringsArray.join('</div></li><li><div>') + '</div></li></ul>'
   }
 
   exports.NoteListView = NoteListView
 })(this)
-
-var notelist = new NoteList ()
-
-notelist.createAndStoreNote('hello')
-
-
-console.log(notelist.returnAllNotes())
-
-
- var view = new NoteListView (notelist)
- view.returnAllList()
- view.returnsHTML()
-
-// console.log(view.returnAllList())
-//
-// console.log(view.noteListModelClass)
-
-console.log(view.returnsHTML())
