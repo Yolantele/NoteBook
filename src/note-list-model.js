@@ -1,8 +1,8 @@
 (function (exports) {
 
   function NoteList (note = Note) {
-    this.notes = [];
-    this.noteClass = note;
+    this.notes = []
+    this.noteClass = note
   }
 
   NoteList.prototype.returnAllNotes = function () {
