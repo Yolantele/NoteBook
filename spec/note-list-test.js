@@ -11,7 +11,6 @@ function testCreateAndStoreNote () {
   assert.isTrue(noteList.notes[0] instanceof DoubleNote)
 }
 
-testCreateAndStoreNote()
 
 function testReturnAllNotes () {
   var noteList = new NoteList(DoubleNote)
@@ -19,9 +18,22 @@ function testReturnAllNotes () {
   assert.isTrue(noteList.returnAllNotes() instanceof Array)
 }
 
-testReturnAllNotes()
+function testUniqueNoteId () {
+  var noteList =  new NoteList()
+  noteList.createAndStoreNote('string1')
+  noteList.createAndStoreNote('string2')
+  console.log(noteList.notes[0])
+  assert.isTrue(noteList.notes[0].id === 1)
+  assert.isTrue(noteList.notes[1].id === 2)
+}
+
+
 // DOUBLES
 
 function DoubleNote () {
 
 }
+
+testCreateAndStoreNote()
+testReturnAllNotes()
+testUniqueNoteId()

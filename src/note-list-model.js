@@ -3,6 +3,7 @@
   function NoteList (note = Note ) {
     this.notes = []
     this.noteClass = note
+    this.idCount = 1
   }
 
   NoteList.prototype = {
@@ -10,9 +11,13 @@
       return this.notes  //returns array
     },
     createAndStoreNote: function (text) {
-      this.notes.push(new this.noteClass(text))
+      var note = new this.noteClass(text, this.idCount)
+      this.notes.push(note)
+      this.idCount += 1
+      console.log(this.notes)
     }
   }
+
 
   exports.NoteList = NoteList
 })(this)
