@@ -14,7 +14,6 @@
       var note = new this.noteClass(text, this.idCount)
       this.notes.push(note)
       this.idCount += 1
-      console.log(this.notes)
     }
   }
 
