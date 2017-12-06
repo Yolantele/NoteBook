@@ -1,27 +1,16 @@
 (function (exports) {
-  function NoteListView (noteList = new NoteList) {
-    this.noteListModelClass = noteList //is an array
-    this.stringsArray = []
+  function NoteListView (noteList = new NoteList()) {
+    this.noteList = noteList;
   }
 
-  NoteListView.prototype = {
-    returnsHTML: function () {
-      console.log(this.noteListModelClass)
-      var array = this.noteListModelClass.forEach(function (note) {
-        return note.text  // returns string
-      })
-      this.stringsArray = array
-      console.log('test 2')
+  NoteListView.prototype.returnHTML = function() {
+    console.log(this.noteList)
+    console.log(this.noteList.notes)
+  var noteListMap = this.noteList.notes.map(function(listItem) {
+    return ("<li><div>" + listItem.text.slice(0, 20) + "</div></li>");
+  });
+  return ("<ul>" + noteListMap.join("") + "</ul>");
+  };
 
-      console.log('test 3')
-
-      console.log(this.stringsArray)
-      //
-      // var html =  '<ul><li><div>' + this.stringsArray.join('</div></li><li><div>') + '</div></li></ul>'
-      //
-      // console.log(html)
-      // return html
-    }
-  }
   exports.NoteListView = NoteListView
 })(this)

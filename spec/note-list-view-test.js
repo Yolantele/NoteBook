@@ -1,22 +1,37 @@
-function testReturnsHTML () {
-  var noteListView = new NoteListView
-  noteListView.stringsArray = [""]
-  assert.isTrue(noteListView.returnsHTML() === '<ul><li><div></div></li></ul>')
+function testNoteListViewCanReturnHTMLString() {
+  var noteList = new DoubleNoteList();
+  var noteListView = new NoteListView(noteList);
+  assert.isTrue(noteListView.returnHTML() == "<ul><li><div>stringy</div></li></ul>");
 }
 
-function testReturnsHTMLNote () {
-  var noteListView = new NoteListView(['Favourite food: pesto'])
-  // noteListView.stringsArray = ['Favourite food: pesto']
-  assert.isTrue(noteListView.returnsHTML() === '<ul><li><div>Favourite food: pesto</div></li></ul>')
+function testNoteListViewCanHandleNoNotes() {
+  var noteListView = new NoteListView();
+  assert.isTrue(noteListView.returnHTML() == "<ul></ul>");
 }
 
-
-function testReturnsHTMLMultipleNotes () {
-  var noteListView = new NoteListView(['Favourite food: pesto', 'Favourite drink: seltzer'])
-  // noteListView.stringsArray = ['Favourite food: pesto', 'Favourite drink: seltzer']
-  assert.isTrue(noteListView.returnsHTML() === '<ul><li><div>Favourite food: pesto</div></li><li><div>Favourite drink: seltzer</div></li></ul>')
+function testNoteListViewCanHandleManyNotes() {
+  var noteList = new DoubleNoteList2();
+  var noteListView = new NoteListView(noteList);
+  assert.isTrue(noteListView.returnHTML() == "<ul><li><div>stringy</div></li><li><div>stringy</div></li></ul>");
 }
 
-  // testReturnsHTML ()
-  testReturnsHTMLNote ()
-  // testReturnsHTMLMultipleNotes ()
+function testNoteListViewShowsFirst20Characters() {
+  var noteList = new DoubleNoteList3();
+  var noteListView = new NoteListView(noteList);
+  assert.isTrue(noteListView.returnHTML() == "<ul><li><div>aaaaaaaaaaaaaaaaaaaa</div></li></ul>");
+}
+
+function DoubleNoteList() {
+  this.notes = [{text:'stringy'}]
+}
+function DoubleNoteList2() {
+  this.notes = [{text:'stringy'}, {text:'stringy'}]
+}
+function DoubleNoteList3() {
+  this.notes = [{text:'aaaaaaaaaaaaaaaaaaaaxxxxxxxx'}]
+}
+
+testNoteListViewCanReturnHTMLString();
+testNoteListViewCanHandleNoNotes();
+testNoteListViewCanHandleManyNotes();
+testNoteListViewShowsFirst20Characters();
