@@ -30,7 +30,6 @@ function testUniqueNoteId () {
 // DOUBLES
 
 function DoubleNote () {
-
 }
 
 testCreateAndStoreNote()

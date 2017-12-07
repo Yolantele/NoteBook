@@ -8,6 +8,5 @@ function testReturnText () {
   assert.isTrue(note.returnText() === 'My favourite language is JavaScript')
 }
 
-
 testTextOfNote()
 testReturnText()
